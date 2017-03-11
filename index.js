@@ -38,7 +38,6 @@ exports.decorateConfig = config => Object.assign({}, config, {
 
     x-row {
       font-variant-ligatures: initial;
-      line-height: 22px;
     }
 
     .cursor-node[focus=true] {
