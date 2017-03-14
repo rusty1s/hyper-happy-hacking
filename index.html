@@ -12,22 +12,29 @@
       margin: 0;
     }
 
-    #backgroundColor, #backgroundImage {
-      position: absolute;
+    #backgroundColor {
+      position: fixed;
       top: 0; right: 0; bottom: 0; left: 0;
     }
 
     #backgroundImage {
+      position: fixed;
+      top: -20px; right: -20px; bottom: -20px; left: -20px;
       filter: blur(20px);
       background: url(http://media.idownloadblog.com/wp-content/uploads/2016/06/macOS-Sierra-Wallpaper-Macbook-Wallpaper.jpg);
       background-size: cover;
     }
 
+    .colors {
+      margin: 4rem auto;
+      max-width: 30rem;
+
+    }
+
     .colors div {
       position: relative;
-      padding: 1em;
-      max-width: 30rem;
-      text-align: right;
+      padding: 1rem;
+      text-align: center;
     }
 
     .colors span {
