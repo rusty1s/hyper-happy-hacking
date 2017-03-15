@@ -22,7 +22,7 @@ const colors = {
   lightWhite: '#ffffff',
 };
 
-if (typeof module === undefined) module.exports= {
+if (typeof module !== undefined) module.exports= {
   backgroundColor,
   foregroundColor,
   borderColor,
