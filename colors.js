@@ -1,4 +1,4 @@
-const backgroundColor = 'rgba(41, 44, 54, 0.9)';
+const backgroundColor = 'rgba(41, 44, 54, 0.7)';
 const foregroundColor = '#ffffff';
 const borderColor = 'transparent';
 const cursorColor = 'magenta';
