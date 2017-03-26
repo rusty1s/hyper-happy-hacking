@@ -1,5 +1,5 @@
 const colors = {
-  black: '#212121',
+  black: '#282828',
   red: '#dc3c3c',
   green: '#689d6a',
   yellow: '#d79921',
@@ -17,7 +17,7 @@ const colors = {
   lightWhite: '#eee8d5',
 };
 
-const backgroundColor = colors.black;
+const backgroundColor = '#212121';
 const foregroundColor = colors.lightWhite;
 const borderColor = 'transparent';
 const cursorColor = colors.magenta;
