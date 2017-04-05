@@ -1,6 +1,30 @@
 {
-  "name": "hyper-happy-hacking",
+  "name": "happy-hacking-theme",
   "version": "0.0.0",
   "main": "index.js",
-  "private": true
+  "private": true,
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rusty1s/hyper-happy-hacking.git"
+  },
+  "author": {
+    "name": "Matthias Fey",
+    "email": "matthias.fey@tu-dortmund.de"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rusty1s/hyper-happy-hacking/issues"
+  },
+  "homepage": "https://github.com/rusty1s/hyper-happy-hacking#readme",
+  "pre-commit": [
+  ],
+  "devDependencies": {
+    "color": "^1.0.3",
+    "plist": "^2.0.1",
+    "pre-commit": "^1.2.2"
+  }
 }
