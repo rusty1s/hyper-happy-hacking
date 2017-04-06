@@ -1,1 +1,1 @@
-# Hyper Happy Hacking
+# Happy Hacking

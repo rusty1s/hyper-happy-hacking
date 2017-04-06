@@ -5,7 +5,7 @@
   "private": true,
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,11 +20,15 @@
     "url": "https://github.com/rusty1s/hyper-happy-hacking/issues"
   },
   "homepage": "https://github.com/rusty1s/hyper-happy-hacking#readme",
-  "pre-commit": [
-  ],
+  "pre-commit": [],
   "devDependencies": {
     "color": "^1.0.3",
+    "jest": "^19.0.2",
     "plist": "^2.0.1",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "rewire": "^2.5.2"
+  },
+  "dependencies": {
+    "ramda": "^0.23.0"
   }
 }

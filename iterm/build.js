@@ -1,25 +1,9 @@
-const fs = require('fs');
+const R = require('ramda')
 
-const Color = require('color');
-const plist = require('plist');
+const Color = require('color')
+const plist = require('plist')
 
-const colors = require('./dark');
-
-const rescale = value => value / 255;
-
-const parseColor = (color) => {
-  color = new Color(color);
-
-  return {
-    'Red Component': rescale(color.red()),
-    'Green Component': rescale(color.green()),
-    'Blue Component': rescale(color.blue()),
-    'Alpha Component': color.alpha(),
-    'Color Space': 'sRGB',
-  };
-};
-
-const keymap = {
+const getKeymap = colors => ({
   'Ansi 0 Color': colors.ansi.black,
   'Ansi 1 Color': colors.ansi.red,
   'Ansi 2 Color': colors.ansi.green,
@@ -47,13 +31,32 @@ const keymap = {
   'Cursor Color': colors.basic.cursorColor,
   'Cursor Text Color': colors.basic.cursorTextColor,
   'Cursor Guide Color': colors.ansi.black,
-};
+})
 
-const dict = Object.keys(keymap).reduce((dict, key) => {
-  dict[key] = parseColor(keymap[key])
-  return dict;
-}, {});
+const parseColor = value => new Color(value)
+const parse = R.map(parseColor)
 
-fs.writeFile('Happy Hacking Dark.itermcolors', plist.build(dict), (err) => {
-  if (err) throw err;
-});
+const getRGB = color => ({
+  'Red Component': color.red(),
+  'Green Component': color.green(),
+  'Blue Component': color.blue(),
+})
+const rescaleColorValueToFloat = value => value / 255
+const getRescaledRGB = R.pipe(getRGB, R.map(rescaleColorValueToFloat))
+const getAlpha = color => ({ 'Alpha Component': color.alpha() })
+const getColorSpace = () => ({ 'Color Space': 'sRGB' })
+
+const convertColor = color => R.mergeAll([
+  getRescaledRGB(color),
+  getAlpha(color),
+  getColorSpace()
+])
+const convert = R.map(convertColor)
+
+// Builds the iterm plist out of a theme.
+const build = module.exports = R.pipe(
+  getKeymap,
+  parse,
+  convert,
+  plist.build
+)
