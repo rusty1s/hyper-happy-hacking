@@ -1,7 +1,6 @@
 const R = require('ramda')
-
 const Color = require('color')
-const plist = require('plist')
+const plist = require('simple-plist')
 
 const getKeymap = colors => ({
   'Ansi 0 Color': colors.ansi.black,
@@ -33,7 +32,7 @@ const getKeymap = colors => ({
   'Cursor Guide Color': colors.ansi.black,
 })
 
-const parseColor = value => new Color(value)
+const parseColor = value => Color(value)
 const parse = R.map(parseColor)
 
 const getRGB = color => ({
@@ -53,10 +52,9 @@ const convertColor = color => R.mergeAll([
 ])
 const convert = R.map(convertColor)
 
-// Builds the iterm plist out of a theme.
 const build = module.exports = R.pipe(
   getKeymap,
   parse,
-  convert,
-  plist.build
+  convert
+  // x => {console.log(x); return x}
 )
