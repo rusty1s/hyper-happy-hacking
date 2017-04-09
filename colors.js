@@ -22,7 +22,7 @@ const foregroundColor = colors.lightWhite;
 const borderColor = 'transparent';
 const cursorColor = colors.magenta;
 
-if (typeof module !== undefined) module.exports= {
+module.exports= {
   backgroundColor,
   foregroundColor,
   borderColor,
